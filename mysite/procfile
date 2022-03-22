@@ -1,1 +1,1 @@
-web: gunicorn CCMS.wsgi --machine -
+web: gunicorn CCMS.wsgi --mysite -
