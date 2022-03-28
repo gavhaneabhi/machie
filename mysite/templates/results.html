@@ -12,11 +12,10 @@
             window.onload = function() {
             
             var chart = new CanvasJS.Chart("chartContainer", {
-                theme: "light2", // "light1", "light2", "dark1", "dark2"
-                exportEnabled: true,
+                
                 animationEnabled: true,
                 title: {
-                    text: "Desktop Browser Market Share in 2016"
+                    text: "Water management"
                 },
                 data: [{
                     type: "pie",
@@ -27,13 +26,11 @@
                     indexLabelFontSize: 16,
                     indexLabel: "{label} - {y}%",
                     dataPoints: [
-                        { y: 51.08, label: "Chrome" },
-                        { y: 27.34, label: "Internet Explorer" },
-                        { y: 10.62, label: "Firefox" },
-                        { y: 5.02, label: "Microsoft Edge" },
-                        { y: 4.07, label: "Safari" },
-                        { y: 1.22, label: "Opera" },
-                        { y: 0.44, label: "Others" }
+                        { y: 51.08, label: "Quality" },
+                        { y: 27.34, label: "Pressure" },
+                        { y: 10.62, label: "Temperature" },
+                        { y: 5.02, label: "Flow" },
+                       
                     ]
                 }]
             });
@@ -41,17 +38,20 @@
             
             }
             </script>
+
+           
          
     </head>
     <body>
-        
-        <div class="btn">
-            <button>Page 3</button>
-        </div>
-                     <!------------------------------------------------------------------------>
-
-                     <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                   <!------------------------------------------------------------------------>
+                   <div style="margin: 20px 10px;" >
+                   <a href="http://127.0.0.1:8000/graph">View pressure</a>
+                    </div>
+                
+                     <div id="chartContainer" style="height: 350px; width: 50%; margin: 20px 80px;"></div>
                      <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+                     
         
     </body>
 
