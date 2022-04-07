@@ -15,8 +15,8 @@ def index(request):
 def login(request):
 
     if request.method == 'POST':
-       U = User.objects.get(usename='Abhishek')
-       U.set_passward(12345)
+       U = User.objects.get(username='Abhishek')
+       U.set_password(12345)
        U.save()
 
     user = authenticate(username = 'Abhishek', password = '12345')

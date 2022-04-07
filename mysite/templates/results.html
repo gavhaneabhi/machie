@@ -11,11 +11,11 @@
          <script>
             window.onload = function() {
             
-            var chart = new CanvasJS.Chart("chartContainer", {
+            var chart1 = new CanvasJS.Chart("chartContainer1", {
                 
                 animationEnabled: true,
                 title: {
-                    text: "Water management"
+                    text: "Water management location 1"
                 },
                 data: [{
                     type: "pie",
@@ -34,7 +34,32 @@
                     ]
                 }]
             });
-            chart.render();
+
+            var chart2 = new CanvasJS.Chart("chartContainer2", {
+                
+                animationEnabled: true,
+                title: {
+                    text: "Water management location 2"
+                },
+                data: [{
+                    type: "pie",
+                    startAngle: 25,
+                    toolTipContent: "<b>{label}</b>: {y}%",
+                    showInLegend: "true",
+                    legendText: "{label}",
+                    indexLabelFontSize: 16,
+                    indexLabel: "{label} - {y}%",
+                    dataPoints: [
+                        { y: 40.08, label: "Quality" },
+                        { y: 27.34, label: "Pressure" },
+                        { y: 22.62, label: "Temperature" },
+                        { y: 15.02, label: "Flow" },
+                       
+                    ]
+                }]
+            });
+            chart1.render();
+            chart2.render();
             
             }
             </script>
@@ -45,14 +70,18 @@
     <body>
                    <!------------------------------------------------------------------------>
                    <div style="margin: 20px 10px;" >
-                   <a href="http://127.0.0.1:8000/graph">View pressure</a>
+                   <a href="http://127.0.0.1:8000/graph">
+                       <button>View Pressure</button>
+                   </a>
                     </div>
-                
-                     <div id="chartContainer" style="height: 350px; width: 50%; margin: 20px 80px;"></div>
+                <div>
+                     <div id="chartContainer1" style="height: 300px;width: 40%; display: inline-block; margin: 20px 30px;"></div>
                      <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
+                     <div id="chartContainer2" style="height: 300px; width: 40%; display: inline-block; margin: 20px"></div>
+                     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
                      
-        
+                 </div>
     </body>
 
     </html>
