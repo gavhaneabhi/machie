@@ -12,7 +12,7 @@
             <h1>Login</h1>
             <form method="post">
                 {% csrf_token %}
-                {{ form.as_p }}
+                {{ form }}
                 <div class="txt_field">
                     <input type="text" name="username" required>
                     <label>Username</label>

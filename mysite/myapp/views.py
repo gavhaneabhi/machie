@@ -15,16 +15,14 @@ def index(request):
 def login(request):
 
     if request.method == 'POST':
-       U = User.objects.get(username='Abhishek')
-       U.set_password(12345)
-       U.save()
+       username = request.POST['username']
+       password = request.POST['password']
 
-    user = authenticate(username = 'Abhishek', password = '12345')
+    user = authenticate(request, username = username, password = password)
 
     if user is not None:
         login(request, user)
-        return redirect(request, "results.html")
-        
+        return redirect(request, "results.html")        
 
     else:
         messages.error(request, "Invalid userID or Passward")
