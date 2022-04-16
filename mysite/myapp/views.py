@@ -1,10 +1,12 @@
 from email import message
+from multiprocessing import AuthenticationError
 from pyexpat.errors import messages
 from re import U
+from telnetlib import AUTHENTICATION
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, auth
 from django.contrib import admin
 
 
@@ -18,15 +20,17 @@ def login(request):
        username = request.POST['username']
        password = request.POST['password']
 
-    user = authenticate(request, username = username, password = password)
+       user = auth.authenticate(request, username = username, password = password)
 
-    if user is not None:
-        login(request, user)
-        return redirect(request, "results.html")        
+       if user is not None:
+           auth.login(request, user)        
+           return redirect(request, "results.html")
+
+       else:
+            message.info(request, 'invalid credentials')                   
 
     else:
-        messages.error(request, "Invalid userID or Passward")
-        return redirect('index.html') 
+        return render(request, 'index.html') 
         
 def results(request):
     return render(request, 'results.html')   
